@@ -33,10 +33,7 @@ class RecipeServices {
 
     List result = data['results'];
 
-    return result
-        .map((e) => CategoryRecipeDetail.fromJson(e))
-        .toList()
-        .sublist(0, 7);
+    return result.map((e) => CategoryRecipeDetail.fromJson(e)).toList();
   }
 
   static Future<RecipeDetail> getRecipeDetail(String key,

@@ -17,7 +17,7 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Color(0xFFff5733),
         title: Text(
           widget.categoryRecipe.category,
           style: GoogleFonts.lato(

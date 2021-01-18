@@ -13,11 +13,11 @@ class RecipeDetail extends Equatable {
   final List<String> step;
 
   RecipeDetail(
-      {this.title,
-      this.thumbnail,
-      this.servings,
-      this.times,
-      this.difficult,
+      {this.title = '',
+      this.thumbnail = '',
+      this.servings = '',
+      this.times = '',
+      this.difficult = '',
       this.author,
       this.desc,
       this.needItem,
@@ -52,6 +52,22 @@ class RecipeDetail extends Equatable {
         ingredient,
         step
       ];
+
+  String get descInString {
+    // Merapihkan deskripsi
+    String s = desc.splitMapJoin(RegExp(r'[.|!|?][\s]'),
+        onMatch: (m) => m.group(0),
+        onNonMatch: (n) => n.splitMapJoin(
+              RegExp(r'[.|!|?]'),
+              onMatch: (m) {
+                return '${m.group(0)}\n\n';
+              },
+              // onNonMatch: (n) => n.splitMapJoin(RegExp(r'[.]'),
+              //     onMatch: (m) => '${m.group(0)}\n'),
+            ));
+
+    return s;
+  }
 }
 
 class Author extends Equatable {

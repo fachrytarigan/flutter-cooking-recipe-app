@@ -7,3 +7,4 @@ import 'package:google_fonts/google_fonts.dart';
 
 part 'category_card.dart';
 part 'recipe_card.dart';
+part 'ingridient_card.dart';

@@ -12,11 +12,11 @@ class RecipeDetailPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            color: Colors.deepOrange,
+            color: Color(0xFFff5733),
           ),
           SafeArea(
             child: Container(
-              color: Colors.white,
+              color: Colors.grey[50],
               child: FutureBuilder(
                 future:
                     RecipeServices.getRecipeDetail(categoryRecipeDetail.key),
@@ -42,14 +42,14 @@ class RecipeDetailPage extends StatelessWidget {
                                   child: Align(
                                     alignment: Alignment.bottomCenter,
                                     child: Container(
-                                      height: 120,
+                                      height: 200,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           begin: Alignment.bottomCenter,
                                           end: Alignment.topCenter,
                                           colors: [
-                                            Colors.white.withOpacity(1),
-                                            Colors.white.withOpacity(0),
+                                            Colors.grey[50].withOpacity(1),
+                                            Colors.grey[700].withOpacity(0.1),
                                           ],
                                           //tileMode: TileMode.clamp,
                                         ),
@@ -80,80 +80,121 @@ class RecipeDetailPage extends StatelessWidget {
                                   recipeDetail.title,
                                   style: GoogleFonts.lato(
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    color: Color(0xFF333333),
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: 16,
+                              height: 12,
                             ),
 
-                            //note: TIMES, SERVINGS, DIFFICULT
-                            // Divider(
-                            //   color: Colors.grey,
-                            //   thickness: 0.3,
-                            //   height: 24,
-                            //   indent: 80,
-                            //   endIndent: 80,
-                            // ),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 70),
+                              padding: EdgeInsets.symmetric(horizontal: 50),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.access_time,
-                                        size: 16,
-                                        color: Colors.orange,
-                                      ),
-                                      SizedBox(width: 2),
-                                      Text(
-                                        recipeDetail.times,
-                                        style: GoogleFonts.lato(
-                                          fontSize: 14,
-                                          color: Colors.black54,
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 6),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(30),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color:
+                                              Colors.grey[300].withOpacity(0.4),
+                                          blurRadius: 8,
+                                          offset: Offset(1, 2),
+                                        )
+                                      ],
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.access_time,
+                                          size: 16,
+                                          color: Colors.orange,
                                         ),
-                                      ),
-                                    ],
+                                        SizedBox(width: 4),
+                                        Text(
+                                          recipeDetail.times,
+                                          style: GoogleFonts.lato(
+                                            fontSize: 13,
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.room_service_outlined,
-                                        size: 18,
-                                        color: Colors.orange,
-                                      ),
-                                      SizedBox(width: 2),
-                                      Text(
-                                        recipeDetail.servings,
-                                        style: GoogleFonts.lato(
-                                          fontSize: 14,
-                                          color: Colors.black54,
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 6),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(30),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color:
+                                              Colors.grey[300].withOpacity(0.4),
+                                          blurRadius: 8,
+                                          offset: Offset(1, 2),
+                                        )
+                                      ],
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.room_service_outlined,
+                                          size: 18,
+                                          color: Colors.orange,
                                         ),
-                                      ),
-                                    ],
+                                        SizedBox(width: 4),
+                                        Text(
+                                          recipeDetail.servings,
+                                          style: GoogleFonts.lato(
+                                            fontSize: 13,
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.local_dining_outlined,
-                                        size: 16,
-                                        color: Colors.orange,
-                                      ),
-                                      SizedBox(width: 2),
-                                      Text(
-                                        recipeDetail.difficult,
-                                        style: GoogleFonts.lato(
-                                          fontSize: 14,
-                                          color: Colors.black54,
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 6),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(30),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color:
+                                              Colors.grey[300].withOpacity(0.4),
+                                          blurRadius: 8,
+                                          offset: Offset(1, 2),
+                                        )
+                                      ],
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.local_dining_outlined,
+                                          size: 16,
+                                          color: Colors.orange,
                                         ),
-                                      ),
-                                    ],
+                                        SizedBox(width: 4),
+                                        Text(
+                                          recipeDetail.difficult,
+                                          style: GoogleFonts.lato(
+                                            fontSize: 13,
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -161,13 +202,6 @@ class RecipeDetailPage extends StatelessWidget {
                             SizedBox(
                               height: 16,
                             ),
-                            // Divider(
-                            //   color: Colors.grey,
-                            //   thickness: 0.3,
-                            //   height: 24,
-                            //   indent: 80,
-                            //   endIndent: 80,
-                            // ),
 
                             //note: AUTHOR, DATE PUBLISHED
                             Container(
@@ -195,7 +229,7 @@ class RecipeDetailPage extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: 16,
+                              height: 24,
                             ),
 
                             //note: DESC
@@ -206,9 +240,9 @@ class RecipeDetailPage extends StatelessWidget {
                                   child: Text(
                                     "DESKRIPSI",
                                     style: GoogleFonts.lato(
-                                      fontSize: 15,
-                                      color: Colors.grey[400],
-                                      fontWeight: FontWeight.w300,
+                                      fontSize: 16,
+                                      color: Color(0xFFff5722),
+                                      fontWeight: FontWeight.w700,
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
@@ -216,31 +250,105 @@ class RecipeDetailPage extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              height: 12,
+                              height: 10,
                             ),
                             Container(
                               padding: EdgeInsets.symmetric(horizontal: 20),
                               child: Text(
-                                recipeDetail.desc.splitMapJoin(
-                                  RegExp(r'[.|!|?]\s'),
-                                  onMatch: (m) => m.group(0),
-                                  onNonMatch: (n) => n.splitMapJoin(
-                                      RegExp(r'[.|!|?]'),
-                                      onMatch: (m) => '${m.group(0)}\n\n'),
-                                ),
-
-                                // recipeDetail.desc.replaceAllMapped(
-                                //   RegExp(r'[.|!|?]\s'),
-                                //   (match) => '${match[0]}\n\n',
-                                // ),
+                                recipeDetail.descInString,
                                 style: GoogleFonts.lato(
-                                  fontSize: 15,
-                                  color: Color(0xFF2B2B28),
+                                  fontSize: 16,
+                                  color: Color(0xFF444444),
                                   height: 1.4,
                                 ),
-                                textAlign: TextAlign.justify,
+                                textAlign: TextAlign.start,
                               ),
-                            )
+                            ),
+
+                            //note: INGRIDIENTS
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  child: Text(
+                                    "BAHAN-BAHAN",
+                                    style: GoogleFonts.lato(
+                                      fontSize: 16,
+                                      color: Color(0xFFff5722),
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Wrap(
+                                spacing: 12,
+                                runSpacing: 12,
+                                children: List.generate(
+                                  recipeDetail.ingredient.length,
+                                  (index) => IngridientCard(
+                                      recipeDetail.ingredient[index]),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  child: Text(
+                                    "CARA MEMBUAT",
+                                    style: GoogleFonts.lato(
+                                      fontSize: 16,
+                                      color: Color(0xFFff5722),
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Column(
+                                children: List.generate(
+                                  recipeDetail.step.length,
+                                  (index) => Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        recipeDetail.step[index],
+                                        style: GoogleFonts.lato(
+                                          fontSize: 16,
+                                          color: Color(0xFF444444),
+                                          height: 1.4,
+                                        ),
+                                      ),
+                                      Divider(
+                                        thickness: 0.3,
+                                        color: Colors.grey,
+                                        height: 30,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
                           ],
                         ),
                       ],

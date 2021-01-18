@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Color(0xFFff5733),
       ),
       body: FutureBuilder(
         future: RecipeServices.getCategoryRecipes(),
@@ -51,8 +51,11 @@ class _MainPageState extends State<MainPage> {
             );
           } else {
             return Center(
-              child: CircularProgressIndicator(),
-            );
+                child: SpinKitRing(
+              color: Colors.deepOrange,
+              lineWidth: 5,
+              duration: Duration(milliseconds: 700),
+            ));
           }
         },
       ),
