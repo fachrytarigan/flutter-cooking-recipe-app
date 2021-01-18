@@ -11,7 +11,12 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cooking App"),
+        title: Text(
+          "Cooking App",
+          style: GoogleFonts.lato(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         backgroundColor: Colors.deepOrange,
       ),
       body: FutureBuilder(

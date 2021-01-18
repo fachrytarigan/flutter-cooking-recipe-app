@@ -41,10 +41,10 @@ class CategoryCard extends StatelessWidget {
           children: [
             Text(
               category.category,
-              style: TextStyle(
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.w600,
                 color: Colors.white,
                 fontSize: 16,
-                fontWeight: FontWeight.w600,
               ),
               textAlign: TextAlign.center,
             ),

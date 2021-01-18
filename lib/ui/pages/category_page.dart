@@ -1,9 +1,15 @@
 part of 'pages.dart';
 
-class CategoryPage extends StatelessWidget {
+class CategoryPage extends StatefulWidget {
   final CategoryRecipe categoryRecipe;
 
   CategoryPage(this.categoryRecipe);
+
+  @override
+  _CategoryPageState createState() => _CategoryPageState();
+}
+
+class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     List<CategoryRecipeDetail> categoryRecipeDetails;
@@ -12,12 +18,17 @@ class CategoryPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.deepOrange,
-        title: Text(categoryRecipe.category),
+        title: Text(
+          widget.categoryRecipe.category,
+          style: GoogleFonts.lato(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       body: Container(
         child: FutureBuilder(
           future: RecipeServices.getCategoryRecipesDetail(
-              categoryRecipe.keyCategory),
+              widget.categoryRecipe.keyCategory),
           builder: (_, snapshot) {
             if (snapshot.hasData) {
               categoryRecipeDetails = snapshot.data;
@@ -37,7 +48,12 @@ class CategoryPage extends StatelessWidget {
                 },
               );
             } else {
-              return Center(child: CircularProgressIndicator());
+              return Center(
+                  child: SpinKitRing(
+                color: Colors.deepOrange,
+                lineWidth: 5,
+                duration: Duration(milliseconds: 700),
+              ));
             }
           },
         ),

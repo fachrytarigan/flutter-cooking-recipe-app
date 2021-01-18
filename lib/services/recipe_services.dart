@@ -38,4 +38,19 @@ class RecipeServices {
         .toList()
         .sublist(0, 7);
   }
+
+  static Future<RecipeDetail> getRecipeDetail(String key,
+      {http.Client client}) async {
+    String url = "https://masak-apa.tomorisakura.vercel.app/api/recipe/:$key";
+
+    client ??= http.Client();
+
+    var response = await client.get(url);
+
+    var data = jsonDecode(response.body);
+
+    var result = data['results'];
+
+    return RecipeDetail.fromJson(result);
+  }
 }
