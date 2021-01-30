@@ -26,6 +26,7 @@ class _CategoryPageState extends State<CategoryPage> {
         ),
       ),
       body: Container(
+        color: Colors.grey[100],
         child: FutureBuilder(
           future: RecipeServices.getCategoryRecipesDetail(
               widget.categoryRecipe.keyCategory),
@@ -37,13 +38,27 @@ class _CategoryPageState extends State<CategoryPage> {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: EdgeInsets.only(
+                      top: 16,
                       left: 20,
-                      top: 20,
                       right: 20,
                       bottom:
                           (index == categoryRecipeDetails.length - 1) ? 20 : 0,
                     ),
-                    child: RecipeCard(categoryRecipeDetails[index]),
+                    child: Column(
+                      children: [
+                        RecipeCard(categoryRecipeDetails[index]),
+                        // SizedBox(
+                        //   height: 20,
+                        // ),
+                        // Divider(
+                        //   color: Colors.grey[300],
+                        //   thickness: 0.4,
+                        //   height: 0,
+                        //   indent: 20,
+                        //   endIndent: 20,
+                        // ),
+                      ],
+                    ),
                   );
                 },
               );

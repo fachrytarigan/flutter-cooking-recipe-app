@@ -68,6 +68,11 @@ class RecipeDetail extends Equatable {
 
     return s;
   }
+
+  List<String> get stepInString {
+    List<String> s = step.map((e) => e.substring(2)).toList();
+    return s;
+  }
 }
 
 class Author extends Equatable {

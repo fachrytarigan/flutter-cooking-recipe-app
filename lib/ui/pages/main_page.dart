@@ -26,27 +26,24 @@ class _MainPageState extends State<MainPage> {
             categories = snapshot.data;
             return Container(
               color: Colors.white,
-              child: ListView(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
-                    child: Wrap(
-                      spacing: 16,
-                      runSpacing: 16,
-                      children: List.generate(
-                        categories.length,
-                        (index) => CategoryCard(
-                          categories[index],
-                          onTap: () {
-                            Get.to(
-                              CategoryPage(categories[index]),
-                            );
-                          },
-                        ),
-                      ),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
+                child: Wrap(
+                  spacing: 16,
+                  runSpacing: 16,
+                  children: List.generate(
+                    categories.length,
+                    (index) => CategoryCard(
+                      categories[index],
+                      onTap: () {
+                        Get.to(
+                          CategoryPage(categories[index]),
+                          transition: Transition.cupertinoDialog,
+                        );
+                      },
                     ),
                   ),
-                ],
+                ),
               ),
             );
           } else {
