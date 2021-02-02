@@ -11,7 +11,7 @@ class RecipeServices {
     var response = await client.get(url);
 
     if (response.statusCode != 200) {
-      return [];
+      throw Exception('Failed to load album');
     }
 
     var data = jsonDecode(response.body);
@@ -49,5 +49,20 @@ class RecipeServices {
     var result = data['results'];
 
     return RecipeDetail.fromJson(result);
+  }
+
+  static Future<List<CategoryRecipeDetail>> getRecipes(
+      {http.Client client}) async {
+    String url = "https://masak-apa.tomorisakura.vercel.app/api/recipes";
+
+    client ??= http.Client();
+
+    var response = await client.get(url);
+
+    var data = jsonDecode(response.body);
+
+    List result = data['results'];
+
+    return result.map((e) => CategoryRecipeDetail.fromJson(e)).toList();
   }
 }

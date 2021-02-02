@@ -7,54 +7,55 @@ class CategoryCard extends StatelessWidget {
   CategoryCard(this.category, {this.onTap});
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
-      width: (MediaQuery.of(context).size.width - 2 * 16 - 16) / 2,
-      height: 90,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        gradient: LinearGradient(
-          begin: Alignment.bottomRight,
-          end: Alignment.topLeft,
-          colors: [
-            Colors.orange,
-            Colors.orange[700],
-          ],
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300].withOpacity(0.5),
-            blurRadius: 8,
-            offset: Offset(1, 2),
-          ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          //highlightColor: Colors.grey[200],
-          splashColor: Colors.white.withOpacity(0.2),
-          borderRadius: BorderRadius.circular(8),
-          onTap: () {
-            if (onTap != null) {
-              onTap();
-            }
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                category.category,
-                style: GoogleFonts.lato(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontSize: 16,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: (size.width - 2 * 16 - 3 * 28) / 4,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(8),
+                onTap: () {
+                  if (onTap != null) {
+                    onTap();
+                  }
+                },
+                child: Container(
+                  padding: EdgeInsets.all(12),
+                  child: Image.asset(category.categoryInString.contains("Makan")
+                      ? "assets/sparkling-water 1.png"
+                      : category.category.contains("Resep")
+                          ? "assets/pies_1.png"
+                          : "assets/pie (1) 1.png"),
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
           ),
-        ),
+          SizedBox(
+            height: 6,
+          ),
+          SizedBox(
+            width: (size.width - 2 * 16 - 3 * 28) / 4,
+            child: Text(
+              category.categoryInString,
+              style: GoogleFonts.poppins(
+                fontSize: 11,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF0E0943),
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
       ),
     );
   }

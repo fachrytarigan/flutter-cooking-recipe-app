@@ -9,16 +9,16 @@ class RecipeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300].withOpacity(0.6),
-            blurRadius: 8,
-            offset: Offset(1, 3),
-          )
-        ],
-      ),
+          // color: Colors.white,
+          // borderRadius: BorderRadius.circular(8),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.grey[300].withOpacity(0.6),
+          //     blurRadius: 8,
+          //     offset: Offset(1, 3),
+          //   )
+          // ],
+          ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -32,14 +32,13 @@ class RecipeCard extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(8),
-                width: 100,
-                height: 100,
+                width: 95,
+                height: 95,
                 child: Hero(
                   tag: categoryRecipeDetail.key,
                   child: Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
                             image: NetworkImage(categoryRecipeDetail.thumbnail),
                             fit: BoxFit.cover)),
@@ -47,7 +46,7 @@ class RecipeCard extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 4,
+                width: 12,
               ),
               Expanded(
                 child: Column(
@@ -56,15 +55,15 @@ class RecipeCard extends StatelessWidget {
                   children: [
                     Text(
                       categoryRecipeDetail.title,
-                      style: GoogleFonts.lato(
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF333333),
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF0E0943),
                         fontSize: 14,
                       ),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 6),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -74,17 +73,18 @@ class RecipeCard extends StatelessWidget {
                             SizedBox(
                               child: Icon(
                                 Icons.access_time,
-                                color: Colors.orange,
-                                size: 16,
+                                color: Color(0xFFFA7854),
+                                size: 15,
                               ),
                             ),
                             SizedBox(width: 2),
                             SizedBox(
                               child: Text(
                                 categoryRecipeDetail.times,
-                                style: GoogleFonts.lato(
+                                style: GoogleFonts.poppins(
                                   fontSize: 11,
-                                  color: Color(0xFF444444),
+                                  color: Color(0xFF555555),
+                                  fontWeight: FontWeight.w300,
                                 ),
                               ),
                             ),
@@ -97,17 +97,18 @@ class RecipeCard extends StatelessWidget {
                             SizedBox(
                               child: Icon(
                                 Icons.room_service_outlined,
-                                color: Colors.orange,
-                                size: 16,
+                                color: Color(0xFFFA7854),
+                                size: 15,
                               ),
                             ),
                             SizedBox(width: 2),
                             SizedBox(
                               child: Text(
                                 categoryRecipeDetail.portion,
-                                style: GoogleFonts.lato(
+                                style: GoogleFonts.poppins(
                                   fontSize: 11,
-                                  color: Color(0xFF444444),
+                                  color: Color(0xFF555555),
+                                  fontWeight: FontWeight.w300,
                                 ),
                               ),
                             ),
@@ -120,17 +121,18 @@ class RecipeCard extends StatelessWidget {
                             SizedBox(
                               child: Icon(
                                 Icons.local_dining_outlined,
-                                color: Colors.orange,
-                                size: 16,
+                                color: Color(0xFFFA7854),
+                                size: 15,
                               ),
                             ),
                             SizedBox(width: 2),
                             SizedBox(
                               child: Text(
                                 categoryRecipeDetail.difficult,
-                                style: GoogleFonts.lato(
+                                style: GoogleFonts.poppins(
                                   fontSize: 11,
-                                  color: Color(0xFF444444),
+                                  color: Color(0xFF555555),
+                                  fontWeight: FontWeight.w300,
                                 ),
                               ),
                             ),

@@ -8,7 +8,17 @@ class CategoryRecipe extends Equatable {
 
   factory CategoryRecipe.fromJson(Map<String, dynamic> jsonObject) {
     return CategoryRecipe(
-        category: jsonObject['category'], keyCategory: jsonObject['key']);
+      category: jsonObject['category'],
+      keyCategory: jsonObject['key'],
+    );
+  }
+
+  String get categoryInString {
+    String s = category
+        .replaceAll(RegExp(r'Masakan '), '')
+        .replaceAll(RegExp(r'Menu '), '')
+        .replaceAll(RegExp(r'Resep '), '');
+    return s;
   }
 
   @override
