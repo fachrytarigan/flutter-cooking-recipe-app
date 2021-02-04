@@ -30,12 +30,30 @@ class CategoryCard extends StatelessWidget {
                   }
                 },
                 child: Container(
-                  padding: EdgeInsets.all(12),
-                  child: Image.asset(category.categoryInString.contains("Makan")
-                      ? "assets/sparkling-water 1.png"
-                      : category.category.contains("Resep")
-                          ? "assets/pies_1.png"
-                          : "assets/pie (1) 1.png"),
+                  padding: EdgeInsets.all(14),
+                  child: Image.asset(
+                    category.category.contains("Masakan Hari Raya")
+                        ? "assets/lantern.png"
+                        : category.category.contains("Tradisional")
+                            ? "assets/traditional-medicine.png"
+                            : category.category.contains("Menu Makan Malam")
+                                ? "assets/restaurant.png"
+                                : category.category.contains("Menu Makan Siang")
+                                    ? "assets/fried-rice.png"
+                                    : category.category.contains("Resep Ayam")
+                                        ? "assets/chicken-leg.png"
+                                        : category.category
+                                                .contains("Resep Daging")
+                                            ? "assets/meat.png"
+                                            : category.category
+                                                    .contains("Resep Sayuran")
+                                                ? "assets/vegetable.png"
+                                                : category.category.contains(
+                                                        "Resep Seafood")
+                                                    ? "assets/seafood (1).png"
+                                                    : "assets/pie (1) 1.png",
+                    color: Color(0xFF554AB2),
+                  ),
                 ),
               ),
             ),
@@ -45,14 +63,21 @@ class CategoryCard extends StatelessWidget {
           ),
           SizedBox(
             width: (size.width - 2 * 16 - 3 * 28) / 4,
-            child: Text(
-              category.categoryInString,
-              style: GoogleFonts.poppins(
-                fontSize: 11,
-                fontWeight: FontWeight.w400,
-                color: Color(0xFF0E0943),
+            child: GestureDetector(
+              onTap: () {
+                if (onTap != null) {
+                  onTap();
+                }
+              },
+              child: Text(
+                category.categoryInString,
+                style: GoogleFonts.poppins(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF0E0943),
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
         ],

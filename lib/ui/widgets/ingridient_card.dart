@@ -8,32 +8,23 @@ class IngridientCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: (MediaQuery.of(context).size.width - 2 * 20 - 16) / 2,
-      padding: EdgeInsets.all(8),
-      height: 75,
+      padding: EdgeInsets.all(12),
+      height: 90,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.white,
-        border: Border.all(color: Colors.grey[300], width: 0.4),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300].withOpacity(0.4),
-            blurRadius: 4,
-            offset: Offset(1, 1),
-          )
-        ],
+        color: Color(0xFFF6F6F6),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             ingridient,
-            style: GoogleFonts.lato(
-              fontSize: 14,
-              color: Color(0xFF444444),
-              //fontWeight: FontWeight.w600,
+            style: GoogleFonts.poppins(
+              fontSize: 13,
+              color: Color(0xFF666666),
             ),
-            textAlign: TextAlign.start,
+            textAlign: TextAlign.center,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
           ),

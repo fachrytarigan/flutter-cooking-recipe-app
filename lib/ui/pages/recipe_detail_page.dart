@@ -20,16 +20,17 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     RecipeDetail recipeDetail;
     return Scaffold(
       body: Stack(
         children: [
           Container(
-            color: Color(0xFFff5733),
+            color: Color(0xFF554AB2),
           ),
           SafeArea(
             child: Container(
-              color: Colors.grey[50],
+              color: Colors.white,
               child: FutureBuilder(
                 future: RecipeServices.getRecipeDetail(
                     widget.categoryRecipeDetail.key),
@@ -45,7 +46,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                 Hero(
                                   tag: widget.categoryRecipeDetail.key,
                                   child: Container(
-                                    height: 200,
+                                    height: 300,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: NetworkImage(
@@ -53,23 +54,6 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                                 widget.categoryRecipeDetail
                                                     .thumbnail),
                                         fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Container(
-                                        height: 200,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            begin: Alignment.bottomCenter,
-                                            end: Alignment.topCenter,
-                                            colors: [
-                                              Colors.grey[50].withOpacity(1),
-                                              Colors.grey[700].withOpacity(0.1),
-                                            ],
-                                            //tileMode: TileMode.clamp,
-                                          ),
-                                        ),
                                       ),
                                     ),
                                   ),
@@ -88,43 +72,45 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
 
                             //note: TITLE
                             Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 16,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30),
+                                ),
                               ),
-                              color: Colors.grey[50],
+                              transform: Matrix4.translationValues(0, -25, 0),
+                              padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
                               child: Column(
                                 children: [
                                   Container(
                                     child: SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.9,
+                                      width: size.width - 40 - 10,
                                       child: Text(
                                         recipeDetail.title,
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.w700,
+                                        style: GoogleFonts.poppins(
                                           fontSize: 20,
-                                          color: Color(0xFF333333),
+                                          color: Color(0xFF0E0943),
+                                          fontWeight: FontWeight.w600,
                                         ),
-                                        textAlign: TextAlign.center,
+                                        textAlign: TextAlign.start,
                                       ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 12,
+                                    height: 16,
                                   ),
                                   TimePortionDifficultWidget(
                                       recipeDetail: recipeDetail),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
 
                                   //note: AUTHOR, DATE PUBLISHED
                                   //AuthorDate(recipeDetail: recipeDetail),
                                 ],
                               ),
                             ),
-
+                            SizedBox(
+                              height: 10,
+                            ),
                             Container(
                               padding: EdgeInsets.symmetric(horizontal: 20),
                               child: Row(
@@ -141,21 +127,21 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                       children: [
                                         Text(
                                           "Deskripsi",
-                                          style: GoogleFonts.lato(
+                                          style: GoogleFonts.poppins(
                                             fontSize: 14,
                                             color: pageController == 0
-                                                ? Color(0xFF444444)
+                                                ? Color(0xFF0E0943)
                                                 : Colors.grey[400],
-                                            fontWeight: FontWeight.w700,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        SizedBox(height: 16),
+                                        SizedBox(height: 10),
                                         Container(
                                           height: 3,
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.2,
+                                              0.1,
                                           color: pageController == 0
                                               ? Color(0xFFff5722)
                                               : Colors.transparent,
@@ -176,21 +162,21 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                       children: [
                                         Text(
                                           "Bahan-Bahan",
-                                          style: GoogleFonts.lato(
+                                          style: GoogleFonts.poppins(
                                             fontSize: 14,
                                             color: pageController == 1
-                                                ? Color(0xFF444444)
+                                                ? Color(0xFF0E0943)
                                                 : Colors.grey[400],
-                                            fontWeight: FontWeight.w700,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        SizedBox(height: 16),
+                                        SizedBox(height: 10),
                                         Container(
-                                          height: 4,
+                                          height: 3,
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.2,
+                                              0.1,
                                           color: pageController == 1
                                               ? Color(0xFFff5722)
                                               : Colors.transparent,
@@ -211,21 +197,21 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                       children: [
                                         Text(
                                           "Cara Membuat",
-                                          style: GoogleFonts.lato(
+                                          style: GoogleFonts.poppins(
                                             fontSize: 14,
                                             color: pageController == 2
-                                                ? Color(0xFF444444)
+                                                ? Color(0xFF0E0943)
                                                 : Colors.grey[400],
-                                            fontWeight: FontWeight.w700,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        SizedBox(height: 16),
+                                        SizedBox(height: 10),
                                         Container(
-                                          height: 4,
+                                          height: 3,
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.2,
+                                              0.1,
                                           color: pageController == 2
                                               ? Color(0xFFff5722)
                                               : Colors.transparent,
@@ -248,11 +234,11 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                           : SizedBox(),
                             ),
 
-                            //note: DESC
+                            //NOTE: DESC
 
-                            //note: INGRIDIENTS
+                            //NOTE: INGRIDIENTS
 
-                            //note: CARA MEMBUAT
+                            //NOTE: CARA MEMBUAT
                           ],
                         ),
                       ],
@@ -298,14 +284,6 @@ class AuthorDate extends StatelessWidget {
               color: Colors.grey[400],
             ),
           ),
-          // Text(
-          //   recipeDetail.author.datePublished,
-          //   style: GoogleFonts.lato(
-          //     fontSize: 12,
-          //     color: Colors.grey[400],
-          //     fontWeight: FontWeight.w600,
-          //   ),
-          // ),
         ],
       ),
     );
@@ -323,98 +301,66 @@ class TimePortionDifficultWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      decoration: BoxDecoration(
+        color: Color(0xFFF6F5FF),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300].withOpacity(0.4),
-                  blurRadius: 8,
-                  offset: Offset(1, 2),
-                )
-              ],
-            ),
             child: Row(
               children: [
                 Icon(
                   Icons.access_time,
                   size: 16,
-                  color: Colors.orange,
+                  color: Color(0xFF554AB2),
                 ),
-                SizedBox(width: 4),
+                SizedBox(width: 6),
                 Text(
                   recipeDetail.times,
-                  style: GoogleFonts.lato(
+                  style: GoogleFonts.poppins(
                     fontSize: 13,
-                    color: Colors.black54,
+                    color: Color(0xFFAAAAAA),
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300].withOpacity(0.3),
-                  blurRadius: 8,
-                  offset: Offset(1, 2),
-                )
-              ],
-            ),
             child: Row(
               children: [
                 Icon(
                   Icons.room_service_outlined,
-                  size: 18,
-                  color: Colors.orange,
+                  size: 16,
+                  color: Color(0xFF554AB2),
                 ),
-                SizedBox(width: 4),
+                SizedBox(width: 6),
                 Text(
                   recipeDetail.servings,
-                  style: GoogleFonts.lato(
+                  style: GoogleFonts.poppins(
                     fontSize: 13,
-                    color: Colors.black54,
+                    color: Color(0xFFAAAAAA),
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300].withOpacity(0.4),
-                  blurRadius: 8,
-                  offset: Offset(1, 2),
-                )
-              ],
-            ),
             child: Row(
               children: [
                 Icon(
                   Icons.local_dining_outlined,
                   size: 16,
-                  color: Colors.orange,
+                  color: Color(0xFF554AB2),
                 ),
-                SizedBox(width: 4),
+                SizedBox(width: 6),
                 Text(
                   recipeDetail.difficult,
-                  style: GoogleFonts.lato(
+                  style: GoogleFonts.poppins(
                     fontSize: 13,
-                    color: Colors.black54,
+                    color: Color(0xFFAAAAAA),
                   ),
                 ),
               ],
@@ -437,23 +383,7 @@ class StepPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 20,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          // topLeft: Radius.circular(30),
-          topRight: Radius.circular(40),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300].withOpacity(0.3),
-            blurRadius: 8,
-            offset: Offset(1, -3),
-          )
-        ],
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       child: Column(
         children: [
           Column(
@@ -468,9 +398,10 @@ class StepPage extends StatelessWidget {
                   children: [
                     Text(
                       "STEP ${index + 1}",
-                      style: GoogleFonts.lato(
+                      style: GoogleFonts.poppins(
                         fontSize: 14,
-                        color: Colors.deepOrange[300],
+                        color: Color(0xFFFA7854),
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     SizedBox(
@@ -482,9 +413,9 @@ class StepPage extends StatelessWidget {
                         children: [
                           Text(
                             recipeDetail.stepInString[index] ?? "",
-                            style: GoogleFonts.lato(
-                              fontSize: 15,
-                              color: Color(0xFF444444),
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              color: Color(0xFF666666),
                             ),
                           ),
                           SizedBox(
@@ -520,20 +451,6 @@ class IngridientPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          //topLeft: Radius.circular(30),
-          topRight: Radius.circular(40),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300].withOpacity(0.3),
-            blurRadius: 8,
-            offset: Offset(1, -3),
-          )
-        ],
-      ),
       padding: EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 24,
@@ -567,29 +484,15 @@ class DescPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          // topLeft: Radius.circular(30),
-          topRight: Radius.circular(40),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300].withOpacity(0.5),
-            blurRadius: 8,
-            offset: Offset(1, -3),
-          )
-        ],
-      ),
       child: Column(
         children: [
           Container(
             child: Text(
               recipeDetail.descInString,
-              style: GoogleFonts.lato(
-                fontSize: 15,
-                color: Color(0xFF444444),
-                height: 1.4,
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Color(0xFF555555),
+                fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.start,
             ),

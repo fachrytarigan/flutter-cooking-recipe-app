@@ -17,16 +17,18 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color(0xFFff5733),
+        backgroundColor: Color(0xFF554AB2),
         title: Text(
           widget.categoryRecipe.category,
-          style: GoogleFonts.lato(
+          style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
+            color: Colors.white,
+            fontSize: 16,
           ),
         ),
       ),
       body: Container(
-        color: Colors.grey[100],
+        color: Color(0xFFF6F5FF),
         child: FutureBuilder(
           future: RecipeServices.getCategoryRecipesDetail(
               widget.categoryRecipe.keyCategory),
@@ -39,8 +41,8 @@ class _CategoryPageState extends State<CategoryPage> {
                   return Padding(
                     padding: EdgeInsets.only(
                       top: 16,
-                      left: 20,
-                      right: 20,
+                      left: 16,
+                      right: 16,
                       bottom:
                           (index == categoryRecipeDetails.length - 1) ? 20 : 0,
                     ),
@@ -65,7 +67,7 @@ class _CategoryPageState extends State<CategoryPage> {
             } else {
               return Center(
                   child: SpinKitRing(
-                color: Colors.deepOrange,
+                color: Color(0xFF554AB2),
                 lineWidth: 5,
                 duration: Duration(milliseconds: 700),
               ));

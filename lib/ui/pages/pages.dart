@@ -10,5 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 part 'main_page.dart';
+part 'home_page.dart';
 part 'category_page.dart';
 part 'recipe_detail_page.dart';
+part 'favorite_page.dart';
